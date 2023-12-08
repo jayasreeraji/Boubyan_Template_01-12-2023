@@ -4,6 +4,9 @@
 #import "IQKeyboardManager/IQKeyboardManager.h"
 #import "SplashScreenPresenter.h"
 
+#import <RNDriveKitCore/react-native-drivekit-core-umbrella.h>
+#import <RNDriveKitTripAnalysis/react-native-drivekit-trip-analysis-umbrella.h>
+
 @implementation AppDelegate
 
 @synthesize shouldOpenInLastApp;
@@ -15,6 +18,8 @@
   [MendixAppDelegate application:application didFinishLaunchingWithOptions:launchOptions];
   [self setupUI];
 
+  [RNDriveKitCoreWrapper.shared initialize];
+  [RNDriveKitTripAnalysisWrapper.shared initializeWithLaunchOptions:launchOptions];
   NSBundle *mainBundle = [NSBundle mainBundle];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

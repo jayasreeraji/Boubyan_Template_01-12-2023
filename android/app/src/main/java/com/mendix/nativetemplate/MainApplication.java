@@ -16,6 +16,11 @@ import org.devio.rn.splashscreen.SplashScreenReactPackage;
 
 import java.util.List;
 
+import com.reactnativedrivekitcore.DriveKitCoreModule;
+import com.reactnativedrivekittripanalysis.DriveKitTripAnalysisModule;
+import com.reactnativedrivekittripanalysis.RNHeadlessJSNotification;
+import com.reactnativedrivekittripanalysis.RNTripNotification;
+
 public class MainApplication extends MendixReactApplication {
     @Override
     public boolean getUseDeveloperSupport() {
@@ -50,4 +55,15 @@ public class MainApplication extends MendixReactApplication {
             }
         };
     }
+
+       @Override
+  public void onCreate() {
+    super.onCreate();
+    DriveKitCoreModule.Companion.initialize(this); 
+
+    final RNTripNotification tripNotification = new RNTripNotification("Boubyan Takaful", "Start a Trip", R.drawable.common_google_signin_btn_icon_dark);
+    final RNHeadlessJSNotification headlessJSNotification = new RNHeadlessJSNotification("Notification title", "Notification description");
+    DriveKitTripAnalysisModule.Companion.initialize(tripNotification, headlessJSNotification);
+
+  }
 }

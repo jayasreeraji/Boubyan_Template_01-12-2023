@@ -3,7 +3,7 @@
 buildscript {
     ext {
         buildToolsVersion = "31.0.0"
-        minSdkVersion = 21
+        minSdkVersion = 23
         compileSdkVersion = 33
         targetSdkVersion = 33
         kotlin_version = "1.7.21"
@@ -83,6 +83,9 @@ allprojects {
         }
         maven {
             url "https://maven.scijava.org/content/repositories/jcenter/"
+        }
+        maven {
+            url "https://maven.drivequant.com/repository/android-sdk/"
         }
     }
 }
